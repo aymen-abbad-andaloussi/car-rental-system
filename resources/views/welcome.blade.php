@@ -4,8 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
+        <title>Car Rental</title>
+        <link rel="shortcut icon" href="{{ asset('storage/images/logo.png') }}" type="image/x-icon">
+        
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -27,16 +28,16 @@
                         <img src="{{ asset('storage/images/logo.png') }}" alt="logo" class="w-[170px] h-[70px]">
                     </div>
                     <div class="text-white/95 flex gap-5">
-                        <a href="#Home" class="text-xl px-10 py-2 rounded-md font-medium hover:bg-black/20 active:bg-white/5">Home</a>
-                        <a href="#About" class="text-xl px-10 py-2 rounded-md font-medium hover:bg-black/20 active:bg-white/5">About</a>
-                        <a href="#Services" class="text-xl px-10 py-2 rounded-md font-medium hover:bg-black/20 active:bg-white/5">Services</a>
-                        <a href="#WhyUs" class="text-xl px-10 py-2 rounded-md font-medium hover:bg-black/20 active:bg-white/5">Why Us</a>
+                        <a href="#Home" class="text-xl px-5 py-2 rounded-md font-medium hover:text-[#F50A0A] hover:bg-black/20 active:bg-white/5 transition-all">Home</a>
+                        <a href="#About" class="text-xl px-5 py-2 rounded-md font-medium hover:text-[#F50A0A] hover:bg-black/20 active:bg-white/5 transition-all">About</a>
+                        <a href="#Services" class="text-xl px-5 py-2 rounded-md font-medium hover:text-[#F50A0A] hover:bg-black/20 active:bg-white/5 transition-all">Services</a>
+                        <a href="#WhyUs" class="text-xl px-5 py-2 rounded-md font-medium hover:text-[#F50A0A] hover:bg-black/20 active:bg-white/5 transition-all">Why Us</a>
                     </div>
                     <div class="login-register flex items-center gap-5">
                         @if (Route::has('login'))
                             @auth
                             <a
-                                href="{{ url('/dashboard') }}"
+                                href="{{ url('/home-cars') }}"
                                 class="inline-block px-7 py-2 bg-white/10 hover:bg-white/5 text-[#e0e0e0] text-md font-medium rounded-md border border-white/30"
                             >
                                 Car Rental

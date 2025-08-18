@@ -11,10 +11,10 @@
             <div class="text-white/90 italic py-6">
                 <h1 class="text-xl font-medium text-[#c90707]">Quick Links</h1>
                 <div class="flex flex-col gap-5 pt-8">
-                    <a href="#Home" class="hover:text-[#c90707] w-fit cursor-pointer">Home</a>
-                    <a href="#About" class="hover:text-[#c90707] w-fit cursor-pointer">About</a>
-                    <a href="#Services" class="hover:text-[#c90707] w-fit cursor-pointer">Services</a>
-                    <a href="#WhyUs" class="hover:text-[#c90707] w-fit cursor-pointer">Why Us</a>
+                    <a class="hover:text-[#c90707] w-fit cursor-pointer">Home</a>
+                    <a class="hover:text-[#c90707] w-fit cursor-pointer">About</a>
+                    <a class="hover:text-[#c90707] w-fit cursor-pointer">Services</a>
+                    <a class="hover:text-[#c90707] w-fit cursor-pointer">Why Us</a>
                 </div>
             </div>
 
