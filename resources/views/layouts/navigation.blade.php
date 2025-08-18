@@ -13,15 +13,15 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex pl-20">
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Home Rental') }}
+                        {{ __('Car Rental View') }}
                     </x-nav-link>
                     <x-nav-link :href="route('home-cars')" :active="request()->routeIs('home-cars')">
                         {{ __('Home Cars') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home-cars')" :active="request()->routeIs('home-cars')">
+                    <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')">
                         {{ __('Chatify') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home-cars')" :active="request()->routeIs('home-cars')">
+                    <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-nav-link>
                 </div>

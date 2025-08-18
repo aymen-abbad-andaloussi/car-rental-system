@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -12,7 +13,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::paginate(6);
         return view('homeCarRental', compact('cars'));
     }
 
@@ -23,6 +24,33 @@ class CarController extends Controller
     {
         //
     }
+
+
+    /**
+     * fiterCar to filter the cars.
+     */
+    public function fiterCar(Request $request)
+    {
+        $markPriority = $request->filter_mark;
+        $cityPriority = $request->filter_city;
+
+        $query = Car::query();
+
+        if ($markPriority != 'all') {
+            $query->where('marque', $markPriority);
+        }
+
+        if ($cityPriority != 'all') {
+            $query->where('city', $cityPriority);
+        }
+
+        $cars = $query->paginate(6);
+
+        // dd($cars);
+        return view('homeCarRental', compact('cars'));
+
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -49,7 +77,9 @@ class CarController extends Controller
             'description'=>$request->description
         ]);
 
-        flash()->success("The car added successfully!");
+        
+
+        flash()->success("The Car Added Successfully!");
         return back();
 
     }
@@ -75,7 +105,34 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $request->validate([
+            'image'=>'nullable',
+            'name'=>'nullable|string',
+            'marque'=>'nullable|string',
+            'price'=>'nullable|integer',
+            'city'=>'nullable|string',
+            'description'=>'nullable|string'
+        ]);
+
+        $data = [];
+
+        if ($request->hasFile('image')) {
+            if ($car->image && Storage::disk('public')->exists($car->image)) {
+                Storage::disk('public')->delete($car->image);
+            }
+            $data['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        if ($request->filled('name')) $data['name'] = $request->name;
+        if ($request->filled('marque')) $data['marque'] = $request->marque;
+        if ($request->filled('price')) $data['price'] = $request->price;
+        if ($request->filled('city')) $data['city'] = $request->city;
+        if ($request->filled('description')) $data['description'] = $request->description;
+
+        $car->update($data);
+
+        flash()->success("The Car Edited Successfully!");
+        return back();
     }
 
     /**
@@ -83,6 +140,15 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $path = $car->image;
+        $storage = Storage::disk('public');
+
+        if ($storage->exists($path)) {
+            $storage->delete($path);
+            $car->delete();
+        }
+
+        flash()->success("The Car Deleted Successfully!");
+        return back();
     }
 }
