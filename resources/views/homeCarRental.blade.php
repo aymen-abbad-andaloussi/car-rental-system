@@ -289,9 +289,9 @@
                                     class="text-green-700 font-bold">{{ $car->price }} DH</span><span
                                     class="text-sm font-light text-white/80">/day</span></h1>
                                 </div>
-                                <button
-                                class="px-10 py-1.5 bg-[#F50A0A] rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700">Rent
-                                Car</button>
+                                <a href="/home-cars/pay-with-stripe"
+                                class="px-10 py-1.5 bg-[#F50A0A] text-center rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700">Rent
+                                Car</a>
                             </div>
                             @endforeach
                         </div>

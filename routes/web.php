@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/home-cars/contact', [ContactController::class, 'contact'])->name('contact');
 
+    Route::get('/home-cars/pay-with-stripe', [StripeController::class, 'checkout'])->name('stripe.payement');
+
 });
 
 require __DIR__.'/auth.php';
