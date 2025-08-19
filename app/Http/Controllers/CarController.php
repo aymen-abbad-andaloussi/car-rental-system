@@ -13,7 +13,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::paginate(6);
+        $cars = Car::paginate(8);
         return view('homeCarRental', compact('cars'));
     }
 
@@ -32,7 +32,9 @@ class CarController extends Controller
     public function fiterCar(Request $request)
     {
         $markPriority = $request->filter_mark;
+        $modelPriority = $request->filter_model;
         $cityPriority = $request->filter_city;
+        $pricePriority = $request->filter_price;
 
         $query = Car::query();
 
@@ -40,11 +42,23 @@ class CarController extends Controller
             $query->where('marque', $markPriority);
         }
 
+        if ($modelPriority != 'all') {
+            $query->where('model', $modelPriority);
+        }
+
         if ($cityPriority != 'all') {
             $query->where('city', $cityPriority);
         }
 
-        $cars = $query->paginate(6);
+        if ($pricePriority != 'all') {
+            if ($pricePriority == 'less_500') {
+                $query->where('price', '<', 500);
+            } elseif ($pricePriority == 'more_500') {
+                $query->where('price', '>=', 500);
+            }
+        }
+
+        $cars = $query->paginate(8);
 
         // dd($cars);
         return view('homeCarRental', compact('cars'));
@@ -61,9 +75,9 @@ class CarController extends Controller
             'image'=>'required',
             'name'=>'required|string',
             'marque'=>'required|string',
-            'price'=>'required|integer',
+            'model'=>'required|integer',
             'city'=>'required|string',
-            'description'=>'required|string'
+            'price'=>'required|integer'
         ]);
 
         $path = $request->file('image')->store('images','public');
@@ -72,9 +86,9 @@ class CarController extends Controller
             'image'=>$path,
             'name'=>$request->name,
             'marque'=>$request->marque,
-            'price'=>$request->price,
+            'model'=>$request->model,
             'city'=>$request->city,
-            'description'=>$request->description
+            'price'=>$request->price
         ]);
 
         
@@ -109,9 +123,9 @@ class CarController extends Controller
             'image'=>'nullable',
             'name'=>'nullable|string',
             'marque'=>'nullable|string',
-            'price'=>'nullable|integer',
+            'model'=>'nullable|integer',
             'city'=>'nullable|string',
-            'description'=>'nullable|string'
+            'price'=>'nullable|integer'
         ]);
 
         $data = [];
@@ -125,9 +139,9 @@ class CarController extends Controller
 
         if ($request->filled('name')) $data['name'] = $request->name;
         if ($request->filled('marque')) $data['marque'] = $request->marque;
-        if ($request->filled('price')) $data['price'] = $request->price;
+        if ($request->filled('model')) $data['model'] = $request->model;
         if ($request->filled('city')) $data['city'] = $request->city;
-        if ($request->filled('description')) $data['description'] = $request->description;
+        if ($request->filled('price')) $data['price'] = $request->price;
 
         $car->update($data);
 

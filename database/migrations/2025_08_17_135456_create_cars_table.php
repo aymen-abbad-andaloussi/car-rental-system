@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('image');
             $table->string('name');
             $table->string('marque');
-            $table->integer('price');
+            $table->integer('model');
             $table->string('city');
-            $table->string('description');
+            $table->integer('price');
             $table->timestamps();
         });
     }

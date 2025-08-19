@@ -10,8 +10,8 @@ class Car extends Model
         'image',
         'name',
         'marque',
-        'price',
+        'model',
         'city',
-        'description'
+        'price'
     ];
 }
