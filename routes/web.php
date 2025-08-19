@@ -4,6 +4,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\ChatifyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,9 +27,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/home-cars', [CarController::class, 'fiterCar'])->name('home-cars.fiterCar');
 
-    Route::get('/home-cars/chatify', [ChatifyController::class, 'chatify'])->name('chatify');
-
     Route::get('/home-cars/contact', [ContactController::class, 'contact'])->name('contact');
+
+    // Route::get('/pay-with-stripe', [StripeController::class, 'checkout'])->name('stripe.payement');
 
 });
 
