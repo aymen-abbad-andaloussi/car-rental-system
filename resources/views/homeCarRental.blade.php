@@ -60,7 +60,7 @@
                         @csrf
 
                         <div class="flex items-center gap-5">
-                            <select name="filter_mark" class="w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                            <select name="filter_mark" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected >Select Mark</option>
                                 @foreach ($cars->pluck('marque')->unique() as $marque)
                                     <option class="bg-black/70 text-white/90 outline-0 text-base font-medium"
@@ -70,7 +70,7 @@
                                 @endforeach
                             </select>
 
-                            <select name="filter_model" class="w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                            <select name="filter_model" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected >Select Model</option>
                                 @foreach ($cars->pluck('model')->unique() as $model)
                                     <option class="bg-black/70 text-white/90 outline-0 text-base font-medium"
@@ -80,7 +80,7 @@
                                 @endforeach
                             </select>
                             
-                            <select name="filter_city" class="w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                            <select name="filter_city" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected >Select City</option>
                                 @foreach ($cars->pluck('city')->unique() as $city)
                                     <option class="bg-black/70 text-white/90 outline-0 text-base font-medium"
@@ -90,7 +90,7 @@
                                 @endforeach
                             </select>
 
-                            <select name="filter_price" class="w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                            <select name="filter_price" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected>Select Price</option>
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="less_500">Less Than 500</option>
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="more_500">More Than 500</option>
@@ -181,24 +181,24 @@
             <div class="mt-10">
                 <div class="grid grid-cols-4 gap-5">
                     @foreach ($cars as $car)
-                        <div class="flex flex-col gap-5 p-3 border border-white/20 rounded-lg relative">
+                        <div class="flex flex-col gap-2 p-3 border h-[380px] hover:bg-white/5 cursor-pointer transition-all border-white/20 rounded-lg relative">
                             @role('manager')
-                            <div class="absolute top-5 right-5 flex gap-2 items-center" data-post-id="{{ $car->id }}">
-                                <button class="btnEdite w-fit hover:bg-[#F50A0A] rounded-md transition-all text-white"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                                    </svg></button>
+                            <div class="absolute top-2 left-4 flex gap-2 items-center" data-post-id="{{ $car->id }}">
                                 <form action="/home-cars/destroy{{ $car->id }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="w-fit hover:bg-[#F50A0A] rounded-full transition-all text-white"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                    <button class="w-fit mt-2 hover:bg-[#F50A0A] rounded-full transition-all text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                         fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                            <path
-                                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                                        </svg></button>
-                                    </form>
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                        <path
+                                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                    </svg></button>
+                                </form>
+                                <button class="btnEdite w-fit hover:bg-[#F50A0A] rounded-md transition-all text-white"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                    </svg></button>
                             </div>
                             @endrole
 
@@ -278,9 +278,9 @@
                             {{-- end Update --}}
                             @endrole
 
-                            <img src="{{ asset('storage/' . $car->image) }}" alt="image" class="w-3/1 ">
-                            <div class="text-white/90 flex flex-col gap-1">
-                                <h1 class="text-2xl capitalize text-neutral-300 font-bold pb-3">{{ $car->name }}
+                            <img src="{{ asset('storage/' . $car->image) }}" alt="image" class="w-full h-[45%]">
+                            <div class="text-white/90 flex flex-col gap-">
+                                <h1 class="text-2xl capitalize text-neutral-300 font-bold pb-1">{{ $car->name }}
                                 </h1>
                                 <h1 class="text-lg ">Mark : <span class="uppercase">{{ $car->marque }}</span></h1>
                                 <h1 class="font-medium">Model : {{ $car->model }}</h1>

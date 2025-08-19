@@ -13,7 +13,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::paginate(8);
+        $cars = Car::paginate(12);
         return view('homeCarRental', compact('cars'));
     }
 
@@ -58,7 +58,7 @@ class CarController extends Controller
             }
         }
 
-        $cars = $query->paginate(8);
+        $cars = $query->paginate(12);
 
         // dd($cars);
         return view('homeCarRental', compact('cars'));
