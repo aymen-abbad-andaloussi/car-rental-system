@@ -279,7 +279,7 @@
                             @endrole
 
                             <img src="{{ asset('storage/' . $car->image) }}" alt="image" class="w-full h-[45%]">
-                            <div class="text-white/90 flex flex-col gap-">
+                            <div class="text-white/90 flex flex-col relative">
                                 <h1 class="text-2xl capitalize text-neutral-300 font-bold pb-1">{{ $car->name }}
                                 </h1>
                                 <h1 class="text-lg ">Mark : <span class="uppercase">{{ $car->marque }}</span></h1>
@@ -289,9 +289,24 @@
                                     class="text-green-700 font-bold">{{ $car->price }} DH</span><span
                                     class="text-sm font-light text-white/80">/day</span></h1>
                                 </div>
-                                <a href="/home-cars/pay-with-stripe"
-                                class="px-10 py-1.5 bg-[#F50A0A] text-center rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700">Rent
-                                Car</a>
+                                <button class="buttonBooking px-10 py-1.5 bg-[#F50A0A] text-center rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700">Rent
+                                Car</button>
+
+                                <div class="divBooking hidden absolute left-1 top-1 border border-white/20 rounded-lg bg-[#363636] w-[16.3vw] h-[30vh] p-3">
+                                    <div class="flex flex-col justify-evenly gap-3 w-full h-[100%]">
+                                        <div class="flex flex-col gap-2">
+                                            <label for="from" class="text-white/90 text-lg">Start Booking :</label>
+                                            <input class="text-white/90 bg-white/20 rounded-lg" type="date" id="from">
+                                        </div>
+                                        <div class="flex flex-col gap-2">
+                                            <label for="to" class="text-white/90 text-lg">End Booking :</label>
+                                            <input class="text-white/90 bg-white/20 rounded-lg" type="date" id="to">
+                                        </div>
+                                        <a href="/home-cars/pay-with-stripe"
+                                        class="px-10 py-1.5 bg-[#F50A0A] text-center rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700">Rent
+                                        Now</a>
+                                    </div>
+                                </div>
                             </div>
                             @endforeach
                         </div>

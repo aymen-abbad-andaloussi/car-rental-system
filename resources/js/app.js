@@ -42,3 +42,15 @@ cancelButtonsEd.forEach((cancelBtn) => {
         divEdite.classList.add('hidden');
     });
 });
+
+
+let buttonBooking = document.querySelectorAll('.buttonBooking');
+
+buttonBooking.forEach((btnBk) => {
+    btnBk.addEventListener('click', () => {
+        let divBooking = btnBk.parentElement.querySelector('.divBooking');
+        if (divBooking) {
+            divBooking.classList.toggle('hidden');
+        }
+    });
+});
