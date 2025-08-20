@@ -1,24 +1,24 @@
 <x-app-layout>
-    <div class="">
+    <div class="max-sm:pt-5">
         <div class="relative " id="Home">
             <img src="{{ asset('storage/images/bg.jpg') }}" alt="bckground" class="w-full">
             <div
-                class="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 text-white flex flex-col gap-3 items-center justify-center bg-black/25 w-[100%] h-[100%]">
-                <h1 class="text-5xl capitalize font-bold">Grow your <span class="text-[#F50A0A]">car rental</span>
+                class="max-sm:gap-1 absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 text-white flex flex-col gap-3 items-center justify-center bg-black/25 w-[100%] h-[100%]">
+                <h1 class="text-5xl capitalize font-bold max-sm:text-base">Grow your <span class="text-[#F50A0A]">car rental</span>
                     business</h1>
-                <h2 class="text-3xl w-[30vw] text-center">Increase efficiency and improve your customer experience with
+                <h2 class="text-3xl w-[30vw] text-center max-sm:w-[90vw] max-sm:text-base">Increase efficiency and improve your customer experience with
                     <span class="text-[#F50A0A]">car rental</span></h2>
-                <p class="text-lg">Free 7-day trial. No credit card required.</p>
+                <p class="text-lg max-sm:text-base">Free 7-day trial. No credit card required.</p>
                 <a href="#rent"
-                    class="px-8 py-2 bg-[#c90707] rounded-full w-fit text-xl font-medium border border-white/20 hover:bg-[#a10505] transition-all cursor-pointer">Rent
+                    class="max-sm:text-sm max-sm:px-5  max-sm:py-1 px-8 py-2 bg-[#c90707] rounded-full w-fit text-xl font-medium border border-white/20 hover:bg-[#a10505] transition-all cursor-pointer">Rent
                     Now!</a>
             </div>
         </div>
     </div>
 {{-- cities --}}
     <div class="my-20 flex flex-col items-center">
-        <h1 class="text-center text-3xl font-medium text-white mb-10">Get car location services before you visit </h1>
-        <div class="flex justify-between w-[70vw]">
+        <h1 class="text-center text-3xl font-medium text-white mb-10 max-sm:text-xl">Get car location services before you visit </h1>
+        <div class="flex justify-between w-[70vw] max-sm:flex-col max-sm:w-[90vw] max-sm:justify-normal max-sm:items-center max-sm:gap-5">
             <div class="relative w-fit h-fit cursor-pointer">
                 <img src="{{ asset('storage/images/city1.jpg') }}" alt="image" class="rounded-xl ">
                 <div class="flex flex-col p-5 absolute bottom-0 left-0 text-white ">
@@ -54,13 +54,13 @@
         <div class="w-[70vw] ">
 
 {{-- filter --}}
-            <div class="flex justify-between">
+            <div class="flex justify-between max-sm:flex-col ">
                 <div class="w-fit">
                     <form action="/home-cars" method="post">
                         @csrf
 
-                        <div class="flex items-center gap-5">
-                            <select name="filter_mark" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                        <div class="flex items-center gap-5 max-sm:flex-col max-sm:pb-5">
+                            <select name="filter_mark" class="max-sm:w-[70VW] cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected >Select Mark</option>
                                 @foreach ($cars->pluck('marque')->unique() as $marque)
                                     <option class="bg-black/70 text-white/90 outline-0 text-base font-medium"
@@ -70,7 +70,7 @@
                                 @endforeach
                             </select>
 
-                            <select name="filter_model" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                            <select name="filter_model" class="max-sm:w-[70VW] cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected >Select Model</option>
                                 @foreach ($cars->pluck('model')->unique() as $model)
                                     <option class="bg-black/70 text-white/90 outline-0 text-base font-medium"
@@ -80,7 +80,7 @@
                                 @endforeach
                             </select>
                             
-                            <select name="filter_city" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                            <select name="filter_city" class="max-sm:w-[70VW] cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected >Select City</option>
                                 @foreach ($cars->pluck('city')->unique() as $city)
                                     <option class="bg-black/70 text-white/90 outline-0 text-base font-medium"
@@ -90,13 +90,13 @@
                                 @endforeach
                             </select>
 
-                            <select name="filter_price" class="cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
+                            <select name="filter_price" class="max-sm:w-[70VW] cursor-pointer hover:bg-black/10 w-[10vw] text-lg font-medium outline-0 text-white/90 rounded-lg bg-white/5">
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="all" selected>Select Price</option>
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="less_500">Less Than 500</option>
                                 <option class="bg-black/70 text-white/90 outline-0 text-base font-medium" value="more_500">More Than 500</option>
                             </select>
 
-                            <button class="px-10 py-2 bg-[#F50A0A] rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700" >Filter</button>                            
+                            <button class="max-sm:w-full px-10 py-2 bg-[#F50A0A] rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700" >Filter</button>                            
 
                         </div>
                     </form>
@@ -179,9 +179,9 @@
 
 {{-- edite & update --}}
             <div class="mt-10">
-                <div class="grid grid-cols-4 gap-5">
+                <div class="grid grid-cols-4 gap-5 max-sm:flex max-sm:flex-wrap max-sm:w-[70vw] ">
                     @foreach ($cars as $car)
-                        <div class="flex flex-col gap-2 p-3 border h-[380px] hover:bg-white/5 cursor-pointer transition-all border-white/20 rounded-lg relative">
+                        <div class="flex flex-col gap-2 p-3 border h-[380px] hover:bg-white/5 cursor-pointer transition-all border-white/20 rounded-lg relative max-sm:w-[80vw]">
                             @role('manager')
                             <div class="absolute top-2 left-4 flex gap-2 items-center" data-post-id="{{ $car->id }}">
                                 <form action="/home-cars/destroy{{ $car->id }}" method="post" enctype="multipart/form-data">
@@ -292,7 +292,7 @@
                                 <button class="buttonBooking px-10 py-1.5 bg-[#F50A0A] text-center rounded-lg text-white text-xl font-medium cursor-pointer hover:bg-red-700">Rent
                                 Car</button>
 
-                                <div class="divBooking hidden absolute left-1 top-1 border border-white/20 rounded-lg bg-[#363636] w-[16.3vw] h-[30vh] p-3">
+                                <div class="divBooking hidden absolute left-1 top-1 border border-white/20 rounded-lg bg-[#363636] w-[16.3vw] h-[30vh] p-3 max-sm:w-[68vw]">
                                     <div class="flex flex-col justify-evenly gap-3 w-full h-[100%]">
                                         <div class="flex flex-col gap-2">
                                             <label for="from" class="text-white/90 text-lg">Start Booking :</label>
@@ -317,12 +317,12 @@
                     </div>
                 </div>
                 
-        <div class="w-[70vw] flex flex-col gap-8">
+        <div class="w-[70vw] flex flex-col gap-8 max-sm:w-[90vw] max-sm:gap4">
             <h1 class="text-3xl font-medium text-white/90">Why <span class="text-[#F50A0A]">Car Rental</span> is the
                 #1 Automotive Marketplace</h1>
-            <div class="gap-10 grid grid-cols-3 w-full justify-center ">
+            <div class="gap-10 grid grid-cols-3 w-full justify-center max-sm:flex max-sm:flex-col max-sm:items-center">
                 <div
-                    class="flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
+                    class="max-sm:w-full flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
                     <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-1.jpg') }}" alt=""
                             class="w-full h-[100%]"></div>
                     <div class="h-[15%] flex items-center">
@@ -331,7 +331,7 @@
                 </div>
 
                 <div
-                    class="flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
+                    class="max-sm:w-full flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
                     <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-2.jpg') }}" alt=""
                             class="w-full h-[100%]"></div>
                     <div class="h-[15%] flex items-center">
@@ -341,7 +341,7 @@
                 </div>
 
                 <div
-                    class="flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
+                    class="max-sm:w-full flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
                     <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-3.jpg') }}" alt=""
                             class="w-full h-[100%]"></div>
                     <div class="h-[15%] flex items-center">
@@ -352,10 +352,10 @@
             </div>
         </div>
 
-        <div class="w-[70vw] text-white/90">
+        <div class="w-[70vw] text-white/90 max-sm:w-[90vw]">
             <h1 class="text-3xl font-medium">Renting a car in Morocco is now easier</h1>
-            <div class="flex mt-5 items-center">
-                <div class="w-[60%] flex flex-col gap-5">
+            <div class="flex mt-5 items-center max-sm:flex-col-reverse">
+                <div class="w-[60%] flex flex-col gap-5 max-sm:w-full">
                     <p class="w-[95%] text-xl">
                         Morocco is a charming country in North Africa and welcomes many visitors every year. Bordered by
                         the Atlantic Ocean and the Mediterranean Sea, the Sahara Desert, beaches, architecture, and
@@ -372,7 +372,7 @@
                         rental locations.
                     </p>
                 </div>
-                <div class="w-[35%]"><img src="{{ asset('storage/images/morocco.webp') }}" alt="morocco"
+                <div class="w-[35%] max-sm:w-[70%]"><img src="{{ asset('storage/images/morocco.webp') }}" alt="morocco"
                         class=""></div>
             </div>
         </div>

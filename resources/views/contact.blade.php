@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="w-full h-[80vh] flex flex-col justify-center items-center">
-        <div class=" border border-white/40 rounded-[30px] flex flex-col gap-5 p-5 w-[40vw]">
+        <div class=" border border-white/40 rounded-[30px] flex flex-col gap-5 p-5 w-[40vw] max-sm:w-[90vw]">
             <div class="w-full flex flex-col gap-1.5">
                 <label class="float-left font-semibold text-white text-xl pl-3 italic">
                     Name:

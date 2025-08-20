@@ -23,11 +23,11 @@
     <body class="flex flex-col bg-[#2c2c2c] text-gray-50">
         <header class="w-full ">
             <nav class="w-full bg-gradient-to-b from-[#111111] to-[#1f1f1f] shadow-2xl fixed top-0 left-0 z-10 " >
-                <div class="w-full h-[10vh] flex items-center justify-between px-[18rem] ">
+                <div class="w-full h-[10vh] flex items-center justify-between px-[18rem] max-sm:px-1 max-sm:justify-center">
                     <div class="flex justify-center">
                         <img src="{{ asset('storage/images/logo.png') }}" alt="logo" class="w-[170px] h-[70px]">
                     </div>
-                    <div class="text-white/95 flex gap-5">
+                    <div class="text-white/95 flex gap-5 max-sm:hidden">
                         <a href="#Home" class="text-xl px-5 py-2 rounded-md font-medium hover:text-[#F50A0A] hover:bg-black/20 active:bg-white/5 transition-all">Home</a>
                         <a href="#About" class="text-xl px-5 py-2 rounded-md font-medium hover:text-[#F50A0A] hover:bg-black/20 active:bg-white/5 transition-all">About</a>
                         <a href="#Services" class="text-xl px-5 py-2 rounded-md font-medium hover:text-[#F50A0A] hover:bg-black/20 active:bg-white/5 transition-all">Services</a>
@@ -64,7 +64,7 @@
             </nav>
             <div class="mt-[10vh] relative " id="Home">
                 <img src="{{ asset('storage/images/bg-cars.jpg') }}" alt="bckground" class="w-full">
-                <div class="absolute left-[15%] top-1/2 transform -translate-y-1/2  text-white/90 pb-20 flex flex-col gap-3">
+                <div class="absolute left-[15%] top-1/2 transform -translate-y-1/2  text-white/90 pb-20 flex flex-col gap-3 max-sm:hidden">
                     <h1 class="text-7xl capitalize font-bold w-[30vw]">Grow your car rental business</h1>
                     <h2 class="text-3xl w-[30vw]">Increase efficiency and improve your customer experience with Car Rental</h2>
                     <p class="text-2xl">You Need To <span class="text-[#F50A0A] border-b border-b-[#F50A0A]">Register</span> First or <span class="text-[#F50A0A] border-b border-b-[#F50A0A]">Log In</span></p>
@@ -79,8 +79,8 @@
                     <div class="pb-10">
                         <h1 class="text-3xl font-medium text-center">About <span class="text-[#F50A0A]">Car Rental</span></h1>
                     </div>
-                    <div class="min-w-full flex justify-center items-center gap-10">
-                        <div class="w-[35vw]">
+                    <div class="min-w-full flex justify-center items-center gap-10 max-sm:flex-col max-sm:gap-5">
+                        <div class="w-[35vw] max-sm:w-[90vw]">
                             <ul class="flex flex-col gap-6 list-disc list-inside">
                                 <li class="text-xl">offering a wide range of vehicles, from compact cars for city driving to spacious SUVs and luxury models for long journeys and special occasions.</li>
                                 <li class="text-xl">Our mission is simple: to make car rental easy, affordable, and accessible for everyone. With flexible rental options, transparent pricing, and 24/7 customer support, we ensure that every trip you take is safe and enjoyable.</li>
@@ -89,7 +89,7 @@
                                 <li class="text-xl">Drive with comfort, drive with confidence — DriveEasy is always by your side.</li>
                             </ul>
                         </div>
-                        <div class="w-[35vw]"><img src="{{ asset('storage/images/about.jpg') }}" alt="" class="w-full"></div>
+                        <div class="w-[35vw] max-sm:w-[90vw]"><img src="{{ asset('storage/images/about.jpg') }}" alt="" class="w-full"></div>
                     </div>                        
                 </div>
             </section>
@@ -99,27 +99,27 @@
                     <h1 class="text-3xl font-medium text-center">Services Of <span class="text-[#F50A0A]">Car Rental</span></h1>
                 </div>
                 <div class="flex flex-col gap-20">
-                    <div class="min-w-full flex justify-center gap-20">
-                        <div class="w-[30vw]"><img src="{{ asset('storage/images/about-2.png') }}" alt="" class="w-full"></div>
-                        <div class="w-[30vw]">
-                            <h1 class="text-5xl w-[30vw] font-medium text-[#F50A0A]">Accept Online Reservations & Payments</h1>
-                            <p class="w-[28vw] text-xl py-10">At DriveEasy Car Rental, we make booking your car as simple as a few clicks. Our secure online system allows you to browse available vehicles, choose the one that fits your needs, and confirm your reservation instantly. No phone calls, no waiting — just fast and reliable service. Plus, with safe online payment options, you can complete your booking with confidence, knowing that your information is protected at every step.</p>
+                    <div class="min-w-full flex justify-center gap-20 max-sm:flex-col-reverse max-sm:gap-5 max-sm:px-10">
+                        <div class="w-[30vw] max-sm:w-[90vw]"><img src="{{ asset('storage/images/about-2.png') }}" alt="" class="w-full"></div>
+                        <div class="w-[30vw] max-sm:w-[90vw]">
+                            <h1 class="text-5xl w-[30vw] font-medium text-[#F50A0A] max-sm:w-[90vw]">Accept Online Reservations & Payments</h1>
+                            <p class="w-[28vw] text-xl py-10 max-sm:w-[90vw]">At DriveEasy Car Rental, we make booking your car as simple as a few clicks. Our secure online system allows you to browse available vehicles, choose the one that fits your needs, and confirm your reservation instantly. No phone calls, no waiting — just fast and reliable service. Plus, with safe online payment options, you can complete your booking with confidence, knowing that your information is protected at every step.</p>
                         </div>
                     </div>
                     
-                    <div class="min-w-full flex justify-center gap-20">
+                    <div class="min-w-full flex justify-center gap-20 max-sm:flex-col max-sm:gap-5 max-sm:px-10">
                         <div class="w-[30vw] pt-10">
-                            <h1 class="text-5xl w-[30vw] font-medium text-[#F50A0A]">Improve your fleet management</h1>
-                            <p class="w-[28vw] text-xl py-10">Managing a fleet doesn’t have to be complicated. With DriveEasy Car Rental, you can streamline operations, track vehicle performance, and reduce downtime with ease. Our smart tools and reliable services help you maintain your cars in top condition, optimize usage, and cut unnecessary costs — giving you full control and efficiency over your entire fleet.</p>
+                            <h1 class="text-5xl w-[30vw] font-medium text-[#F50A0A] max-sm:w-[90vw]">Improve your fleet management</h1>
+                            <p class="w-[28vw] text-xl py-10 max-sm:w-[90vw]">Managing a fleet doesn’t have to be complicated. With DriveEasy Car Rental, you can streamline operations, track vehicle performance, and reduce downtime with ease. Our smart tools and reliable services help you maintain your cars in top condition, optimize usage, and cut unnecessary costs — giving you full control and efficiency over your entire fleet.</p>
                         </div>
-                        <div class="w-[30vw]"><img src="{{ asset('storage/images/about-1.png') }}" alt="" class="w-full"></div>
+                        <div class="w-[30vw] max-sm:w-[90vw]"><img src="{{ asset('storage/images/about-1.png') }}" alt="" class="w-full"></div>
                     </div>
                     
-                    <div class="min-w-full flex justify-center gap-20">
-                        <div class="w-[30vw]"><img src="{{ asset('storage/images/about-3.png') }}" alt="" class="w-full"></div>
+                    <div class="min-w-full flex justify-center gap-20 max-sm:flex-col-reverse max-sm:gap-5 max-sm:px-10">
+                        <div class="w-[30vw] max-sm:w-[90vw]"><img src="{{ asset('storage/images/about-3.png') }}" alt="" class="w-full"></div>
                         <div class="w-[30vw] pt-5">
-                            <h1 class="text-5xl w-[30vw] font-medium text-[#F50A0A]">5-Star Service You Can Trust <span class="text-yellow-400">★★★★★</span></h1>
-                            <p class="w-[28vw] text-xl py-10">At DriveEasy Car Rental, customer satisfaction is our top priority. We are proud to deliver 5-star service with every rental, ensuring clean, well-maintained cars, transparent pricing, and friendly support whenever you need it. Our commitment to excellence has earned us the trust of countless happy customers who choose us for safe, reliable, and enjoyable journeys.</p>
+                            <h1 class="text-5xl w-[30vw] font-medium text-[#F50A0A] max-sm:w-[90vw]">5-Star Service You Can Trust <span class="text-yellow-400">★★★★★</span></h1>
+                            <p class="w-[28vw] text-xl py-10 max-sm:w-[90vw]">At DriveEasy Car Rental, customer satisfaction is our top priority. We are proud to deliver 5-star service with every rental, ensuring clean, well-maintained cars, transparent pricing, and friendly support whenever you need it. Our commitment to excellence has earned us the trust of countless happy customers who choose us for safe, reliable, and enjoyable journeys.</p>
                         </div>
                     </div>
                 </div>
@@ -129,25 +129,36 @@
                 <div class="pb-10">
                     <h1 class="text-3xl font-medium text-center">Why <span class="text-[#F50A0A]">Us</span></h1>
                 </div>
-                <div class="gap-10 grid grid-cols-3 w-full justify-center px-[20rem]">
-                    <div class="flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
-                        <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-1.jpg') }}" alt="" class="w-full h-[100%]"></div>
-                        <div class="h-[15%] flex items-center">
-                            <h1 class="text-2xl text-center font-medium text-white/90">Top-Quality Cars</h1>
+
+                <div class="w-full flex justify-center gap-8">
+                    <div class=" gap-10 grid grid-cols-3 w-[70vw] justify-center max-sm:flex max-sm:flex-col max-sm:items-center">
+                        <div
+                            class="max-sm:w-full flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
+                            <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-1.jpg') }}" alt=""
+                                    class="w-full h-[100%]"></div>
+                            <div class="h-[15%] flex items-center">
+                                <h1 class="text-2xl text-center font-medium text-white/90">Top-Quality Cars</h1>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
-                        <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-2.jpg') }}" alt="" class="w-full h-[100%]"></div>
-                        <div class="h-[15%] flex items-center">
-                            <h1 class="text-2xl text-center font-medium text-white/90">Excellent Service &<br>Customer Care</h1>
+
+                        <div
+                            class="max-sm:w-full flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
+                            <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-2.jpg') }}" alt=""
+                                    class="w-full h-[100%]"></div>
+                            <div class="h-[15%] flex items-center">
+                                <h1 class="text-2xl text-center font-medium text-white/90">Excellent Service &<br>Customer Care
+                                </h1>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
-                        <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-3.jpg') }}" alt="" class="w-full h-[100%]"></div>
-                        <div class="h-[15%] flex items-center">
-                            <h1 class="text-2xl text-center font-medium text-white/90">We Deliver Cars to Your Location</h1>
+
+                        <div
+                            class="max-sm:w-full flex flex-col items-center justify-center gap-3 w-[20vw] border border-white/30 rounded-lg p-3 hover:bg-white/15 cursor-pointer transition-all">
+                            <div class="w-full h-[85%]"><img src="{{ asset('storage/images/why-3.jpg') }}" alt=""
+                                    class="w-full h-[100%]"></div>
+                            <div class="h-[15%] flex items-center">
+                                <h1 class="text-2xl text-center font-medium text-white/90">We Deliver Cars to Your Location
+                                </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
